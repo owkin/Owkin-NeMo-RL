@@ -4584,6 +4584,12 @@ fsdp = [
     { name = "mamba-ssm" },
     { name = "vllm" },
 ]
+fsdp = [
+    { name = "causal-conv1d" },
+    { name = "flash-attn" },
+    { name = "mamba-ssm" },
+    { name = "vllm" },
+]
 mcore = [
     { name = "deep-ep" },
     { name = "flash-attn" },
@@ -4742,7 +4748,7 @@ requires-dist = [
     { name = "wandb" },
     { name = "xgrammar", marker = "extra == 'sglang'" },
 ]
-provides-extras = ["fsdp", "automodel", "vllm", "sglang", "mcore", "nemo-gym"]
+provides-extras = ["fsdp", "automodel", "vllm", "mcore", "nemo-gym"]
 
 [package.metadata.requires-dev]
 build = [
