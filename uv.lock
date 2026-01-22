@@ -1564,8 +1564,8 @@ source = { git = "https://github.com/deepseek-ai/DeepEP.git?rev=bfded34800dfec41
 dependencies = [
     { name = "ninja" },
     { name = "packaging" },
-    { name = "torch", version = "2.9.0", source = { registry = "https://pypi.org/simple" }, marker = "(sys_platform == 'darwin' and extra == 'extra-7-nemo-rl-automodel') or (sys_platform == 'darwin' and extra == 'extra-7-nemo-rl-mcore') or (sys_platform != 'darwin' and extra == 'extra-7-nemo-rl-fsdp' and extra == 'extra-7-nemo-rl-sglang') or (sys_platform == 'darwin' and extra != 'extra-7-nemo-rl-fsdp' and extra == 'extra-7-nemo-rl-vllm') or (sys_platform == 'darwin' and extra == 'extra-7-nemo-rl-fsdp' and extra != 'extra-7-nemo-rl-sglang' and extra == 'extra-7-nemo-rl-vllm') or (extra == 'extra-7-nemo-rl-automodel' and extra == 'extra-7-nemo-rl-sglang') or (extra != 'extra-7-nemo-rl-fsdp' and extra == 'extra-7-nemo-rl-mcore' and extra == 'extra-7-nemo-rl-sglang') or (extra != 'extra-7-nemo-rl-fsdp' and extra == 'extra-7-nemo-rl-sglang' and extra == 'extra-7-nemo-rl-vllm') or (extra == 'extra-7-nemo-rl-fsdp' and extra != 'extra-7-nemo-rl-mcore' and extra == 'extra-7-nemo-rl-sglang')" },
-    { name = "torch", version = "2.9.0+cu129", source = { registry = "https://download.pytorch.org/whl/cu129" }, marker = "(sys_platform != 'darwin' and extra == 'extra-7-nemo-rl-automodel') or (sys_platform != 'darwin' and extra == 'extra-7-nemo-rl-mcore') or (sys_platform != 'darwin' and extra != 'extra-7-nemo-rl-fsdp' and extra == 'extra-7-nemo-rl-vllm') or (sys_platform == 'darwin' and extra == 'extra-7-nemo-rl-fsdp' and extra == 'extra-7-nemo-rl-sglang') or (sys_platform != 'darwin' and extra == 'extra-7-nemo-rl-fsdp' and extra != 'extra-7-nemo-rl-sglang' and extra == 'extra-7-nemo-rl-vllm') or (extra == 'extra-7-nemo-rl-automodel' and extra == 'extra-7-nemo-rl-sglang') or (extra != 'extra-7-nemo-rl-fsdp' and extra == 'extra-7-nemo-rl-mcore' and extra == 'extra-7-nemo-rl-sglang') or (extra != 'extra-7-nemo-rl-fsdp' and extra == 'extra-7-nemo-rl-sglang' and extra == 'extra-7-nemo-rl-vllm') or (extra != 'extra-7-nemo-rl-automodel' and extra == 'extra-7-nemo-rl-fsdp' and extra != 'extra-7-nemo-rl-mcore' and extra == 'extra-7-nemo-rl-sglang')" },
+    { name = "torch", version = "2.9.0", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform == 'darwin'" },
+    { name = "torch", version = "2.9.0+cu129", source = { registry = "https://download.pytorch.org/whl/cu129" }, marker = "sys_platform != 'darwin'" },
 ]
 
 [[package]]
@@ -4542,7 +4542,6 @@ dependencies = [
     { name = "numpy" },
     { name = "nvidia-ml-py" },
     { name = "nvidia-nvshmem-cu12", marker = "(platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra == 'extra-7-nemo-rl-automodel' and extra == 'extra-7-nemo-rl-sglang') or (platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra == 'extra-7-nemo-rl-fsdp' and extra == 'extra-7-nemo-rl-sglang') or (platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra == 'extra-7-nemo-rl-mcore' and extra == 'extra-7-nemo-rl-sglang') or (platform_machine != 'aarch64' and platform_machine != 'x86_64' and extra == 'extra-7-nemo-rl-sglang' and extra == 'extra-7-nemo-rl-vllm') or (platform_machine == 'aarch64' and sys_platform == 'linux') or (platform_machine == 'x86_64' and sys_platform == 'linux') or (sys_platform != 'linux' and extra == 'extra-7-nemo-rl-automodel' and extra == 'extra-7-nemo-rl-sglang') or (sys_platform != 'linux' and extra == 'extra-7-nemo-rl-fsdp' and extra == 'extra-7-nemo-rl-sglang') or (sys_platform != 'linux' and extra == 'extra-7-nemo-rl-mcore' and extra == 'extra-7-nemo-rl-sglang') or (sys_platform != 'linux' and extra == 'extra-7-nemo-rl-sglang' and extra == 'extra-7-nemo-rl-vllm')" },
-    { name = "nvidia-resiliency-ext" },
     { name = "nvtx" },
     { name = "omegaconf" },
     { name = "pillow" },
@@ -4575,56 +4574,26 @@ automodel = [
     { name = "mamba-ssm" },
     { name = "nemo-automodel" },
     { name = "nv-grouped-gemm" },
-    { name = "transformer-engine", extra = ["pytorch"], marker = "extra == 'extra-7-nemo-rl-automodel' or (extra == 'extra-7-nemo-rl-fsdp' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-mcore' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-sglang' and extra == 'extra-7-nemo-rl-vllm')" },
-    { name = "vllm" },
-]
-fsdp = [
-    { name = "causal-conv1d" },
-    { name = "flash-attn" },
-    { name = "mamba-ssm" },
-    { name = "vllm" },
-]
-fsdp = [
-    { name = "causal-conv1d" },
-    { name = "flash-attn" },
-    { name = "mamba-ssm" },
+    { name = "transformer-engine", extra = ["pytorch"] },
     { name = "vllm" },
 ]
 mcore = [
-    { name = "deep-ep" },
     { name = "flash-attn" },
     { name = "megatron-bridge" },
     { name = "megatron-core" },
-    { name = "transformer-engine", extra = ["pytorch"], marker = "extra == 'extra-7-nemo-rl-mcore' or (extra == 'extra-7-nemo-rl-automodel' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-fsdp' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-sglang' and extra == 'extra-7-nemo-rl-vllm')" },
+    { name = "transformer-engine", extra = ["pytorch"] },
     { name = "vllm" },
 ]
 nemo-gym = [
     { name = "nemo-gym" },
 ]
-sglang = [
-    { name = "compressed-tensors" },
-    { name = "einops" },
-    { name = "interegular" },
-    { name = "msgspec" },
-    { name = "openai" },
-    { name = "openai-harmony" },
-    { name = "orjson" },
-    { name = "partial-json-parser" },
-    { name = "pybase64" },
-    { name = "python-multipart" },
-    { name = "requests" },
-    { name = "sentencepiece" },
-    { name = "sgl-kernel" },
-    { name = "sglang" },
-    { name = "torch-memory-saver" },
-    { name = "torchao", version = "0.9.0", source = { registry = "https://pypi.org/simple" } },
-    { name = "uvloop" },
-    { name = "xgrammar", version = "0.1.27", source = { registry = "https://pypi.org/simple" } },
-]
 vllm = [
+    { name = "causal-conv1d" },
     { name = "cuda-python" },
     { name = "deep-ep" },
     { name = "deep-gemm" },
+    { name = "flash-attn" },
+    { name = "mamba-ssm" },
     { name = "num2words" },
     { name = "vllm" },
 ]
@@ -4688,6 +4657,7 @@ requires-dist = [
     { name = "flash-attn", marker = "extra == 'fsdp'", specifier = "==2.8.1" },
     { name = "flash-attn", marker = "extra == 'mcore'", specifier = "==2.8.1" },
     { name = "hydra-core" },
+    { name = "interegular", marker = "extra == 'sglang'" },
     { name = "mamba-ssm", marker = "extra == 'automodel'", git = "https://github.com/state-spaces/mamba.git?rev=d68d16ed7d5d5164eb5a57c0285f3b7eb8394ec1" },
     { name = "mamba-ssm", marker = "extra == 'vllm'", git = "https://github.com/state-spaces/mamba.git?rev=d68d16ed7d5d5164eb5a57c0285f3b7eb8394ec1" },
     { name = "math-verify" },
@@ -4748,7 +4718,7 @@ requires-dist = [
     { name = "wandb" },
     { name = "xgrammar", marker = "extra == 'sglang'" },
 ]
-provides-extras = ["fsdp", "automodel", "vllm", "mcore", "nemo-gym"]
+provides-extras = ["fsdp", "automodel", "vllm", "sglang", "mcore", "nemo-gym"]
 
 [package.metadata.requires-dev]
 build = [
@@ -7503,6 +7473,93 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/76/95/faf61eb8363f26aa7e1d762267a8d602a1b26d4f3a1e758e92cb3cb8b054/setuptools-80.10.2.tar.gz", hash = "sha256:8b0e9d10c784bf7d262c4e5ec5d4ec94127ce206e8738f29a437945fbc219b70", size = 1200343, upload-time = "2026-01-25T22:38:17.252Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/94/b8/f1f62a5e3c0ad2ff1d189590bfa4c46b4f3b6e49cef6f26c6ee4e575394d/setuptools-80.10.2-py3-none-any.whl", hash = "sha256:95b30ddfb717250edb492926c92b5221f7ef3fbcc2b07579bcd4a27da21d0173", size = 1064234, upload-time = "2026-01-25T22:38:15.216Z" },
+]
+
+[[package]]
+name = "sgl-kernel"
+version = "0.3.20"
+source = { git = "https://github.com/sgl-project/sglang?subdirectory=sgl-kernel&tag=v0.5.7#232982a0dee4f0f9545189a7d9b6b9bb802e4910" }
+dependencies = [
+    { name = "scikit-build-core" },
+    { name = "torch", version = "2.9.0", source = { registry = "https://pypi.org/simple" }, marker = "(sys_platform == 'darwin' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-automodel' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-fsdp' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-mcore' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-sglang' and extra == 'extra-7-nemo-rl-vllm')" },
+    { name = "torch", version = "2.9.0+cu129", source = { registry = "https://download.pytorch.org/whl/cu129" }, marker = "(sys_platform != 'darwin' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-automodel' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-fsdp' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-mcore' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-sglang' and extra == 'extra-7-nemo-rl-vllm')" },
+    { name = "wheel" },
+]
+
+[[package]]
+name = "sglang"
+version = "0.5.7"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "aiohttp" },
+    { name = "anthropic" },
+    { name = "av", marker = "platform_machine == 'aarch64' and sys_platform == 'linux'" },
+    { name = "blobfile" },
+    { name = "build" },
+    { name = "compressed-tensors" },
+    { name = "cuda-python" },
+    { name = "datasets" },
+    { name = "decord2" },
+    { name = "einops" },
+    { name = "fastapi" },
+    { name = "flashinfer-cubin" },
+    { name = "flashinfer-python", version = "0.5.3", source = { registry = "https://pypi.org/simple" } },
+    { name = "gguf" },
+    { name = "grpcio" },
+    { name = "grpcio-health-checking" },
+    { name = "grpcio-reflection" },
+    { name = "grpcio-tools" },
+    { name = "hf-transfer" },
+    { name = "huggingface-hub" },
+    { name = "interegular" },
+    { name = "ipython" },
+    { name = "llguidance" },
+    { name = "modelscope" },
+    { name = "msgspec" },
+    { name = "ninja" },
+    { name = "numpy" },
+    { name = "nvidia-cutlass-dsl", version = "4.2.1", source = { registry = "https://pypi.org/simple" } },
+    { name = "nvidia-ml-py" },
+    { name = "openai" },
+    { name = "openai-harmony" },
+    { name = "orjson" },
+    { name = "outlines" },
+    { name = "packaging" },
+    { name = "partial-json-parser" },
+    { name = "pillow" },
+    { name = "prometheus-client" },
+    { name = "psutil" },
+    { name = "py-spy" },
+    { name = "pybase64" },
+    { name = "pydantic" },
+    { name = "python-multipart" },
+    { name = "pyzmq" },
+    { name = "requests" },
+    { name = "scipy" },
+    { name = "sentencepiece" },
+    { name = "setproctitle" },
+    { name = "sgl-kernel" },
+    { name = "soundfile" },
+    { name = "tiktoken" },
+    { name = "timm" },
+    { name = "torch", version = "2.9.0", source = { registry = "https://pypi.org/simple" }, marker = "(sys_platform == 'darwin' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-automodel' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-fsdp' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-mcore' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-sglang' and extra == 'extra-7-nemo-rl-vllm')" },
+    { name = "torch", version = "2.9.0+cu129", source = { registry = "https://download.pytorch.org/whl/cu129" }, marker = "(sys_platform != 'darwin' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-automodel' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-fsdp' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-mcore' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-sglang' and extra == 'extra-7-nemo-rl-vllm')" },
+    { name = "torch-memory-saver" },
+    { name = "torchao", version = "0.9.0", source = { registry = "https://pypi.org/simple" } },
+    { name = "torchaudio" },
+    { name = "torchcodec", marker = "(platform_machine != 'aarch64' and platform_machine != 'arm64' and platform_machine != 'armv7l') or sys_platform != 'linux'" },
+    { name = "torchvision", version = "0.24.0", source = { registry = "https://download.pytorch.org/whl/cu129" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-7-nemo-rl-sglang') or (platform_machine != 'aarch64' and extra == 'extra-7-nemo-rl-automodel' and extra == 'extra-7-nemo-rl-sglang') or (platform_machine != 'aarch64' and extra == 'extra-7-nemo-rl-fsdp' and extra == 'extra-7-nemo-rl-sglang') or (platform_machine != 'aarch64' and extra == 'extra-7-nemo-rl-mcore' and extra == 'extra-7-nemo-rl-sglang') or (platform_machine != 'aarch64' and extra == 'extra-7-nemo-rl-sglang' and extra == 'extra-7-nemo-rl-vllm') or (sys_platform != 'linux' and extra == 'extra-7-nemo-rl-automodel' and extra == 'extra-7-nemo-rl-sglang') or (sys_platform != 'linux' and extra == 'extra-7-nemo-rl-fsdp' and extra == 'extra-7-nemo-rl-sglang') or (sys_platform != 'linux' and extra == 'extra-7-nemo-rl-mcore' and extra == 'extra-7-nemo-rl-sglang') or (sys_platform != 'linux' and extra == 'extra-7-nemo-rl-sglang' and extra == 'extra-7-nemo-rl-vllm')" },
+    { name = "torchvision", version = "0.24.0", source = { registry = "https://pypi.org/simple" }, marker = "(sys_platform == 'darwin' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-automodel' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-fsdp' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-mcore' and extra == 'extra-7-nemo-rl-sglang') or (extra == 'extra-7-nemo-rl-sglang' and extra == 'extra-7-nemo-rl-vllm')" },
+    { name = "torchvision", version = "0.24.0+cu129", source = { registry = "https://download.pytorch.org/whl/cu129" }, marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-7-nemo-rl-sglang') or (sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-7-nemo-rl-sglang') or (sys_platform == 'darwin' and extra == 'extra-7-nemo-rl-automodel' and extra == 'extra-7-nemo-rl-sglang') or (sys_platform == 'darwin' and extra == 'extra-7-nemo-rl-fsdp' and extra == 'extra-7-nemo-rl-sglang') or (sys_platform == 'darwin' and extra == 'extra-7-nemo-rl-mcore' and extra == 'extra-7-nemo-rl-sglang') or (sys_platform == 'darwin' and extra == 'extra-7-nemo-rl-sglang' and extra == 'extra-7-nemo-rl-vllm') or (sys_platform == 'linux' and extra == 'extra-7-nemo-rl-automodel' and extra == 'extra-7-nemo-rl-sglang') or (sys_platform == 'linux' and extra == 'extra-7-nemo-rl-fsdp' and extra == 'extra-7-nemo-rl-sglang') or (sys_platform == 'linux' and extra == 'extra-7-nemo-rl-mcore' and extra == 'extra-7-nemo-rl-sglang') or (sys_platform == 'linux' and extra == 'extra-7-nemo-rl-sglang' and extra == 'extra-7-nemo-rl-vllm')" },
+    { name = "tqdm" },
+    { name = "transformers" },
+    { name = "uvicorn" },
+    { name = "uvloop" },
+    { name = "xgrammar", version = "0.1.27", source = { registry = "https://pypi.org/simple" } },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/d7/bd/1943cac907b2aa575853bf9d2a95c315caf3473ec6edd826e96d7e3adf7d/sglang-0.5.7.tar.gz", hash = "sha256:930e00658128016838d14dddb4527a0948d512cd1f265d465de98d32414b89ed", size = 3097441, upload-time = "2026-01-01T03:01:13.975Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/20/7a/51dd4cec4258905c18d2d61d925c6b8703d3bdf8eafeb6484b35273ed932/sglang-0.5.7-py3-none-any.whl", hash = "sha256:b77f9e5ca5a2ab19b3efba725958fc4de20ba97880e383738c695e8611b51100", size = 4036880, upload-time = "2026-01-01T03:01:11.852Z" },
 ]
 
 [[package]]
